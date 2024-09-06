@@ -22,10 +22,8 @@ dependencies and then build GLOMAP using the following commands:
 mkdir build
 cd build
 cmake .. -GNinja
-ninja && ninja install
+ninja && sudo ninja install
 ```
-Pre-compiled Windows binaries can be downloaded from the official
-[release page](https://github.com/colmap/glomap/releases).
 
 After installation, one can run GLOMAP by (starting from a database)
 ```shell
