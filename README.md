@@ -25,9 +25,17 @@ cmake .. -GNinja
 ninja && sudo ninja install
 ```
 
-After installation, one can run GLOMAP by (starting from a database)
+In this section, we will use datasets from [this link](https://demuc.de/colmap/datasets) as examples.
+Download the datasets and put them under `data` folder.
+
+### From database
+
+If a COLMAP database already exists, GLOMAP can directly use it to perform mapping:
 ```shell
-glomap mapper --database_path DATABASE_PATH --output_path OUTPUT_PATH --image_path IMAGE_PATH
+glomap mapper \
+    --database_path ./data/south-building/database.db \
+    --image_path    ./data/south-building/images \
+    --output_path   ./output/south-building/sparse
 ```
 For more details on the command line interface, one can type `glomap -h` or `glomap mapper -h` for help.
 
@@ -39,25 +47,9 @@ Note:
   However, if a self-installed version is preferred, one can also disable the `FETCH_COLMAP` and `FETCH_POSELIB` CMake options.
 - To use `FetchContent`, the minimum required version of `cmake` is 3.28. If a self-installed version is used, `cmake` can be downgraded to 3.10.
 
-## End-to-End Example
-
-In this section, we will use datasets from [this link](https://demuc.de/colmap/datasets) as examples.
-Download the datasets and put them under `data` folder.
-
-### From database
-
-If a COLMAP database already exists, GLOMAP can directly use it to perform mapping:
-```shell
-glomap mapper \
-    --database_path ./data/gerrard-hall/database.db \
-    --image_path    ./data/gerrard-hall/images \
-    --output_path   ./output/gerrard-hall/sparse
-```
-
 ### From images
 
-To obtain a reconstruction from images, the database needs to be established
-first. Here, we utilize the functions from COLMAP:
+To obtain a reconstruction from images, the database needs to be established first. Here, we utilize the functions from COLMAP:
 ```shell
 colmap feature_extractor \
     --image_path    ./data/south-building/images \
@@ -78,7 +70,8 @@ for more details.
 
 The reconstruction can be visualized using the COLMAP GUI, for example:
 ```shell
-colmap gui --import_path ./output/south-building/sparse/0
+cd ~/glomap/south-building
+colmap gui --import_path 0/ --database_path database.db --image_path images
 ```
 Alternatives like [rerun.io](https://rerun.io/examples/3d-reconstruction/glomap)
 also enable visualization of COLMAP and GLOMAP outputs.
