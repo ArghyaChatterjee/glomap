@@ -1,10 +1,5 @@
 # GLOMAP: Global Structure-from-Motion Revisited
 
-[Project page](https://lpanaf.github.io/eccv24_glomap/) | [Paper](https://arxiv.org/pdf/2407.20219)
----
-
-## About
-
 GLOMAP is a general purpose global structure-from-motion pipeline for
 image-based reconstruction. GLOMAP requires a COLMAP database as input and
 outputs a COLMAP sparse reconstruction. As compared to COLMAP, this project
@@ -18,7 +13,7 @@ sudo snap install cmake --classic
 ```
 Install the dependencies as follows:
 ```shell
-sudo apt install ninja-build build-essential libeigen3-dev libsuitesparse-dev libblas-dev libceres-dev libboost-all-dev
+sudo apt install ninja-build build-essential libeigen3-dev libsuitesparse-dev libblas-dev libceres-dev libboost-all-dev libflann-dev libsqlite3-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev libcgal-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libmetis-dev libfreeimage-dev libglew-dev
 ```
 
 To build GLOMAP, first install [COLMAP](https://colmap.github.io/install.html#build-from-source)
@@ -45,12 +40,6 @@ Note:
   With the default setting, the library is built automatically by GLOMAP via `FetchContent`.
   However, if a self-installed version is preferred, one can also disable the `FETCH_COLMAP` and `FETCH_POSELIB` CMake options.
 - To use `FetchContent`, the minimum required version of `cmake` is 3.28. If a self-installed version is used, `cmake` can be downgraded to 3.10.
-- If your system does not provide a recent enough CMake version, you can install it as:
-  ```shell
-  wget https://github.com/Kitware/CMake/releases/download/v3.30.1/cmake-3.30.1.tar.gz
-  tar xfvz cmake-3.30.1.tar.gz && cd cmake-3.30.1
-  ./bootstrap && make -j$(nproc) && sudo make install
-  ```
 
 ## End-to-End Example
 
