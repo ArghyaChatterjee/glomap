@@ -79,6 +79,8 @@ also enable visualization of COLMAP and GLOMAP outputs.
 If you want to inspect the reconstruction programmatically, you can use
 `pycolmap` in Python or link against COLMAP's C++ library interface.
 
+<img src="media/glomap.png" align="center" width="800">
+
 ### Notes
 
 - For larger scale datasets, it is recommended to use `sequential_matcher` or
