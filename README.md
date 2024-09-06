@@ -47,6 +47,16 @@ Note:
   However, if a self-installed version is preferred, one can also disable the `FETCH_COLMAP` and `FETCH_POSELIB` CMake options.
 - To use `FetchContent`, the minimum required version of `cmake` is 3.28. If a self-installed version is used, `cmake` can be downgraded to 3.10.
 
+#### Data Conversion
+To convert the data using colmap, you have to install the colmap library.
+```
+sudo apt install colmap
+```
+Now, convert the data from .bin to .txt format:
+```
+colmap model_converter --input_path . --output_path ./output --output_type TXT
+```
+
 ### From images
 
 To obtain a reconstruction from images, the database needs to be established first. Here, we utilize the functions from COLMAP:
