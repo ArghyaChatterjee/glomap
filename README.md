@@ -11,17 +11,15 @@ outputs a COLMAP sparse reconstruction. As compared to COLMAP, this project
 provides a much more efficient and scalable reconstruction process, typically
 1-2 orders of magnitude faster, with on-par or superior reconstruction quality.
 
-If you use this project for your research, please cite
-```
-@inproceedings{pan2024glomap,
-    author={Pan, Linfei and Barath, Daniel and Pollefeys, Marc and Sch\"{o}nberger, Johannes Lutz},
-    title={{Global Structure-from-Motion Revisited}},
-    booktitle={European Conference on Computer Vision (ECCV)},
-    year={2024},
-}
-```
-
 ## Getting Started
+The dependency in this repo needs cmake version > 3.28. So, you have to make sure that you have correct version of cmake.
+```
+sudo snap install cmake --classic
+```
+Install the dependencies as follows:
+```shell
+sudo apt install ninja-build build-essential libeigen3-dev libsuitesparse-dev libblas-dev libceres-dev libboost-all-dev
+```
 
 To build GLOMAP, first install [COLMAP](https://colmap.github.io/install.html#build-from-source)
 dependencies and then build GLOMAP using the following commands: 
