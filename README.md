@@ -1,10 +1,6 @@
 # GLOMAP: Global Structure-from-Motion Revisited
 
-GLOMAP is a general purpose global structure-from-motion pipeline for
-image-based reconstruction. GLOMAP requires a COLMAP database as input and
-outputs a COLMAP sparse reconstruction. As compared to COLMAP, this project
-provides a much more efficient and scalable reconstruction process, typically
-1-2 orders of magnitude faster, with on-par or superior reconstruction quality.
+GLOMAP is a general purpose global structure-from-motion pipeline for image-based reconstruction. GLOMAP requires a COLMAP database as input and outputs a COLMAP sparse reconstruction. As compared to COLMAP, this project provides a much more efficient and scalable reconstruction process, typically 1-2 orders of magnitude faster, with on-par or superior reconstruction quality.
 
 ## Getting Started
 The dependency in this repo needs cmake version > 3.28. So, you have to make sure that you have correct version of cmake.
@@ -16,8 +12,7 @@ Install the dependencies as follows:
 sudo apt install ninja-build build-essential libeigen3-dev libsuitesparse-dev libblas-dev libceres-dev libboost-all-dev libflann-dev libsqlite3-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev libcgal-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libmetis-dev libfreeimage-dev libglew-dev
 ```
 
-To build GLOMAP, first install [COLMAP](https://colmap.github.io/install.html#build-from-source)
-dependencies and then build GLOMAP using the following commands: 
+To build GLOMAP, first install [COLMAP](https://colmap.github.io/install.html#build-from-source) dependencies and then build GLOMAP using the following commands: 
 ```shell
 mkdir build
 cd build
@@ -99,7 +94,5 @@ If you want to inspect the reconstruction programmatically, you can use
 colmap sequential_matcher --database_path DATABASE_PATH
 colmap vocab_tree_matcher --database_path DATABASE_PATH --VocabTreeMatching.vocab_tree_path VOCAB_TREE_PATH
 ```
-- Alternatively, one can use
-  [hloc](https://github.com/cvg/Hierarchical-Localization/) for image retrieval
-  and matching with learning-based descriptors.
+- Alternatively, one can use [hloc](https://github.com/cvg/Hierarchical-Localization/) for image retrieval and matching with learning-based descriptors.
 
